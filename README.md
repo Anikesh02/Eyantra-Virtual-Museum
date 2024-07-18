@@ -15,12 +15,10 @@ e-Yantra 2024
 - Clone the repository from GitHub:
     ```
     git clone https://github.com/eYSIP-2024/24_metaverse_museum.git
-   
     ```
 - Setup a virtual environment
   ```
   python -m venv env
-
   ```
 #### Install dependencies
 - Install `node` and `npm` from [official website](https://nodejs.org).
@@ -28,34 +26,26 @@ e-Yantra 2024
 - After installing python install django: 
     ```
     pip install django
-
 	```
 
 - Change current working directory to Project directory
     ```
     cd location
-
     ```
 - Install `npm` dependencies after changing working directory to `location`: 
     ```
     npm install
-
     ```
 - After installing dependencies run:
     ```
     npm run dev
-
     ```
 #### In another terminal, run the django server (Don't cd location in this terminal):
 
   ```
   python manage.py runserver
-
   ```
   	
-
-  
-    
   	
 #### Add uploads folder:
 > The uploads file structure should be like this:
@@ -115,6 +105,163 @@ Features successfully implemented are:
 👉 Admin 
 
 ## Landing Page
+⭐ Header Section
+
+   The header section includes the navigation bar and logo. It also contains links for different sections of the website and user authentication options.
+   ```
+    <header>
+        <img class="logoSize" src="static/assets/landingImgs/logo.png" alt="">
+        <ul class="navbar">
+            <li><a href="#">Home</a></li>
+            <li><a href="{% url 'indiaMap' %}">Map</a></li>
+            <li><div class="dropdown">
+                <button class="dropbtn">Edition</button>
+                <div class="dropdown-content">
+                  <a href="{% url 'edition' 1 %}">Edition 1</a>
+                  <a href="{% url 'edition' 2 %}">Edition 2</a>
+                  <a href="{% url 'edition' 3 %}">Edition 3</a>
+                  <a href="{% url 'edition' 4 %}">Edition 4</a>
+                </div>
+              </div>
+            </li>
+            <li><a href="{% url 'quiz' %}">Quiz</a></li>
+            {% if not user.is_authenticated %}
+            <li><a href="{% url 'register' %}">Register</a></li>
+            <li><a href="{% url 'login' %}">Login</a></li>
+            {% endif%}
+            {% if user.is_authenticated%}
+            <li><a href="{% url 'logout' %}">Logout</a></li>
+            {% endif%}
+        </ul>
+        <div class="h-right">
+            <a href="#">Follow us</a>
+            <a href="#"><i class="ri-instagram-line"></i></a>
+            <a href="#"><i class="ri-twitter-x-line"></i></a>
+            <a href="#"><i class="ri-facebook-fill"></i></a>
+            <div class="bx bx-menu" id="menu-icon"></div>
+        </div>
+    </header>
+   ```
+
+⭐ Home Section
+
+The home section introduces the virtual museum with a title, subtitle, and a call-to-action button. It also includes a background video.
+```
+<section class="home">
+    <div class="home-text">
+        <h1>e-Yantra Virtual Museum</h1>
+        <h3>"Built by Students, For Students"</h3>
+        <a href="{% url 'commonLobby' %}" class="btn" style="z-index: 1000;">Explore</a>
+        <video id="homeVideo" autoplay muted loop>
+            <source src="static/assets/videos/vmc_back.mp4" type="video/mp4">
+        </video>
+    </div>
+</section>
+```
+
+⭐ Feature Section
+
+This section highlights the key features of the virtual museum, such as the virtual museum, locations, and artifact gallery.
+```
+<section class="feature">
+    <h1 style="color: #C80036; text-align: center; font-size: 62px; margin-bottom: 40px;">Features of our Museum</h1>
+    <div class="feature-content">
+        <div class="row">
+            <div class="row-img">
+                <img src="static/assets/landingImgs/threeArtifacts.png" alt="">
+            </div>
+            <h4 style="font-weight: bold;">Virtual Museum</h4>
+        </div>
+        <div class="row">
+            <div class="row-img">
+                <img src="static/assets/landingImgs/map.png" alt="">
+            </div>
+            <h4 style="font-weight: bold;">Our Locations</h4>
+        </div>
+        <div class="row">
+            <div class="row-img">
+                <img src="static/assets/landingImgs/infodesk.png" alt="">
+            </div>
+            <h4 style="font-weight: bold;">Artefact Gallery</h4>
+        </div>
+    </div>
+</section>
+```
+
+⭐ JavaScript for Interactive Elements
+
+Adds interactivity to the header and navigation menu, making the header sticky on scroll and toggling the menu on click.
+```
+<script>
+    const header = document.querySelector('header');
+
+    window.addEventListener('scroll', () => {
+        header.classList.toggle('sticky', window.scrollY > 60);
+    });
+
+    let menu = document.querySelector('#menu-icon');
+    let navbar = document.querySelector('.navbar');
+
+    menu.onclick = () => {
+        menu.classList.toggle('bx-x');
+        navbar.classList.toggle('open');
+    }
+</script>
+```
+## India map
+
+⭐ Display State Info
+
+This function updates the info desk with the selected state's information, including its name, capital, image, and artifacts. It then makes the info desk visible.
+
+```
+function displayStateInfo(stateId) {
+  const stateInfo = artifactsData[stateId];
+  document.getElementById('state-name').innerText = stateInfo.name;
+  document.getElementById('capital').innerText = `(${stateInfo.capital})`;
+  document.querySelector('.state-image').src = stateInfo.image;
+  document.querySelector('.artifacts-list').innerHTML = stateInfo.artifacts.map(artifact => `<li>${artifact}</li>`).join('');
+  document.getElementById('info-desk').classList.remove('hidden');
+}
+```
+
+⭐ Timeline Click Event
+
+This code adds a click event listener to each state in the timeline. When a state is clicked, it calls the displayStateInfo function to update the info desk with the selected state's information.
+
+```
+document.querySelectorAll('#timeline li').forEach(item => {
+  item.addEventListener('click', event => {
+    const stateId = event.target.getAttribute('data-state');
+    displayStateInfo(stateId);
+  });
+});
+```
+⭐ Go Back Button
+
+This code adds a click event listener to the "Go Back" button. When the button is clicked, it hides the info desk by adding the 'hidden' class.
+
+```
+document.getElementById('go-back').addEventListener('click', () => {
+  document.getElementById('info-desk').classList.add('hidden');
+});
+```
+⭐ Go to Museum Button
+
+This code adds a click event listener to the "Go to Museum" button. When the button is clicked, it redirects the user to the museum page.
+
+```
+document.getElementById('go-museum').addEventListener('click', () => {
+  window.location.href = '/museum';
+});
+```
+
+
+
+
+
+
+
 
 
 
