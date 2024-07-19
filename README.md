@@ -215,6 +215,89 @@ Adds interactivity to the header and navigation menu, making the header sticky o
 
 Route: `/india`
 
+⭐ Loading India Map
+
+To load the 3D model of the India map, we use the GLTFLoader from the three.js library. The model is scaled and positioned appropriately, and each state is assigned a texture.
+```
+const monkeyUrl = new URL("india_try19.glb", import.meta.url);
+const loader = new GLTFLoader();
+let indiaMapLoaded = false;
+let indiaMap;
+let children;
+
+loader.load(monkeyUrl.href, function (glb) {
+  indiaMap = glb.scene;
+  indiaMap.position.set(0, 0, -0.5);
+  indiaMap.scale.set(4, 4, 4);
+
+  // Assign texture to each state
+  children = indiaMap.children;
+  children.forEach((child) => {
+    child.material = state_texture;
+  });
+  indiaMapLoaded = true;
+  scene.add(indiaMap);
+});
+```
+
+⭐ Highlighting States on Mouse Hover
+
+We use a Raycaster to detect mouse movements over the states. When a state is hovered over, its color changes, and the corresponding language is displayed.
+```
+const raycaster = new THREE.Raycaster();
+renderer.domElement.addEventListener("mousemove", (event) => {
+  event.stopPropagation();
+  if (intervalId) {
+    clearInterval(intervalId);
+    intervalId = null;
+  }
+  const mouse = new THREE.Vector2(
+    (event.clientX / window.innerWidth) * 2 - 1,
+    -(event.clientY / window.innerHeight) * 2 + 1
+  );
+  raycaster.setFromCamera(mouse, camera);
+
+  children.forEach((child) => {
+    if (child instanceof THREE.Mesh) {
+      const intersects = raycaster.intersectObject(child, true);
+      if (intersects.length > 0) {
+        child.material = new THREE.MeshBasicMaterial({ color: 0xE34547 });
+        const hoveredLanguage = india_translation(child.name);
+        languageElement.textContent = hoveredLanguage;
+      } else {
+        child.material = state_texture;
+      }
+    }
+  });
+});
+```
+
+⭐ Displaying Info Desk on State Click
+
+When a state is clicked, an info desk appears showing artifacts related to that state. This is achieved by adding a click event listener to the renderer's DOM element.
+```
+renderer.domElement.addEventListener("click", (event) => {
+  const mouse = new THREE.Vector2(
+    (event.clientX / window.innerWidth) * 2 - 1,
+    -(event.clientY / window.innerHeight) * 2 + 1
+  );
+  raycaster.setFromCamera(mouse, camera);
+
+  children.forEach((child) => {
+    if (child instanceof THREE.Mesh) {
+      const intersects = raycaster.intersectObject(child, true);
+      if (intersects.length > 0) {
+        showInfoDesk(child.name);
+        if (intervalId) {
+          clearInterval(intervalId);
+          intervalId = null;
+        }
+      }
+    }
+  });
+});
+```
+
 ⭐ Display State Info
 
 This function updates the info desk with the selected state's information, including its name, capital, image, and artifacts. It then makes the info desk visible.
@@ -621,26 +704,12 @@ def indiaLobby(request, state_code):
     return render(request, './indiaMuseum.html', context={"data": dataJSON})
 ```
 
-➡️ Upon the DOM's completion of loading, the script parses JSON data embedded within the HTML to extract exhibit information. For each exhibit, it dynamically creates HTML elements, encapsulating details like images and titles. These newly formed elements are then appended to a designated container within the HTML, effectively populating the webpage with exhibit data in a structured and visually appealing manner. This process ensures that each exhibit is represented on the page, allowing users to browse through them seamlessly.
+➡️ The code iterates over the data array and creates image planes with borders using the createImagePlaneWithBorder function. Each plane is configured with properties from the corresponding data and frames arrays, such as position, rotation, dimensions, and additional metadata (like slug, modalInfo, reportUrl, youtubeUrl, and title). The created planes are then pushed into the planes array. The array is created in a way as new artifacts will be added in the lobby in future, they will be placed based on the positions stored in the array.
 ```
-document.addEventListener('DOMContentLoaded', function() {
-    const data = JSON.parse(document.getElementById('exhibit-data').textContent);
-    const exhibitContainer = document.getElementById('exhibit-container');
-
-    data.forEach(exhibit => {
-        const exhibitElement = document.createElement('div');
-        exhibitElement.className = 'exhibit';
-
-        exhibitElement.innerHTML = `
-            <h2>${exhibit.title}</h2>
-            <img src="${exhibit.imageUrl}" alt="${exhibit.title}">
-            <p>${exhibit.modalInfo}</p>
-            <a href="${exhibit.modelLink}">View Model</a>
-        `;
-
-        exhibitContainer.appendChild(exhibitElement);
-    });
-});
+for (let i = 0; i < data.length; i++) {
+    planes.push(createImagePlaneWithBorder(data[i].imageUrl, frames[i].position, frames[i].rotation, frames[i].width, frames[i].height, frames[i].borderPositionOffset, frames[i].hasBorder, data[i].slug, data[i].modalInfo, data[i].reportUrl, data[i].youtubeUrl, data[i].title));
+}
+console.log(planes);
 ```
 
 ## Edition-wise Lobby
@@ -684,27 +753,12 @@ def edition(request, pk):
     dataJSON = dumps(data)
     return render(request, './edition.html', context={"data": dataJSON})
  ```
- ➡️ The JavaScript file is responsible for fetching and displaying the exhibition entries for a specific edition. It likely makes an AJAX call to the edition view and dynamically updates the HTML content based on the response.
+ ➡️ The code iterates over the data array and creates image planes with borders using the createImagePlaneWithBorder function. Each plane is configured with properties from the corresponding data and frames arrays, such as position, rotation, dimensions, and additional metadata (like slug, modalInfo, reportUrl, youtubeUrl, and title). The created planes are then pushed into the planes array. The array is created in a way as new artifacts will be added in the lobby in future, they will be placed based on the positions stored in the array.
 ```
-document.addEventListener('DOMContentLoaded', function() {
-    const edition = document.getElementById('edition').value;
-    fetch(`/edition/${edition}/`)
-        .then(response => response.json())
-        .then(data => {
-            const container = document.getElementById('exhibition-container');
-            data.forEach(exhibit => {
-                const exhibitElement = document.createElement('div');
-                exhibitElement.innerHTML = `
-                    <h2>${exhibit.title}</h2>
-                    <img src="${exhibit.poster}" alt="${exhibit.title}">
-                    <p>${exhibit.modalInfo}</p>
-                    <a href="${exhibit.modelLink}">View Model</a>
-                `;
-                container.appendChild(exhibitElement);
-            });
-        })
-        .catch(error => console.error('Error fetching exhibition data:', error));
-});
+for (let i = 0; i < data.length; i++) {
+    planes.push(createImagePlaneWithBorder(data[i].imageUrl, frames[i].position, frames[i].rotation, frames[i].width, frames[i].height, frames[i].borderPositionOffset, frames[i].hasBorder, data[i].slug, data[i].modalInfo, data[i].reportUrl, data[i].youtubeUrl, data[i].title));
+}
+console.log(planes);
 ```
 
 ## Interactive Quiz
@@ -812,21 +866,21 @@ Route: `/admin`
 
 ⭐ Exhibition_Entry Admin:
 
-- list_display: Shows specific fields in the list view.
-- search_fields: Enables search functionality on specified fields.
-- list_filter: Adds filter options in the admin sidebar.
-- readonly_fields: Makes certain fields read-only.
-- fieldsets: Organizes fields into sections for better UI.
+- `list_display`: Shows specific fields in the list view.
+- `search_fields`: Enables search functionality on specified fields.
+- `list_filter`: Adds filter options in the admin sidebar.
+- `readonly_fields`: Makes certain fields read-only.
+- `fieldsets`: Organizes fields into sections for better UI.
 ⭐ Question Admin:
 
-- list_display: Displays the question text in the list view.
-- search_fields: Allows searching by question text.
-- list_filter: Adds filtering options for questions.
+- `list_display`: Displays the question text in the list view.
+- `search_fields`: Allows searching by question text.
+- `list_filter`: Adds filtering options for questions.
 ⭐ Choice Admin:
 
-- list_display: Shows question, choice text, position, and correctness in the list view.
-- search_fields: Enables search by choice text.
-- list_filter: Adds filtering options for questions and correctness.
+- `list_display`: Shows question, choice text, position, and correctness in the list view.
+- `search_fields`: Enables search by choice text.
+- `list_filter`: Adds filtering options for questions and correctness.
 ```
 from django.contrib import admin
 from .models import Exhibition_Entry, Question, Choice
