@@ -56,8 +56,8 @@ Install dependencies:
 - Add uploads folder:
 
     The uploads file structure should be like this:
-
-    ![image](https://github.com/user-attachments/assets/fb4b734c-91e3-4a9e-9f6a-ad5fcdcfb77d)
+  
+	[![uploads-Img.png](https://i.postimg.cc/SxsM1tg9/uploads-Img.png)](https://postimg.cc/JGf0GKV7)
 
  ## Abstract
  
