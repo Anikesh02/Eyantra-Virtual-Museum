@@ -488,7 +488,8 @@ const showSelectionModal = () => {
   -  Creating Walls and Floors
   - Stairs Logic
 
-#### Functions: 
+ Functions: 
+ 
 ➡️ `createImagePlaneWithBorder`: 
 The createImagePlaneWithBorder function creates an image plane with an optional border. It loads the image texture, creates the plane geometry and material, and positions the plane in the scene. If a border is specified, it creates and positions the border around the image plane.
 ```
