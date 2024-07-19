@@ -710,6 +710,17 @@ def indiaLobby(request, state_code):
     dataJSON = dumps(data)
     return render(request, './indiaMuseum.html', context={"data": dataJSON})
 ```
+ ➡️ The `frames` array defines the configuration for various frames displayed in the virtual museum. Each frame object includes properties for position, rotation, width, height, border position offset, and whether it has a border. These properties ensure that each frame is accurately placed and oriented within the 3D space of the museum. The frames are distributed across different floors and walls, creating a structured and visually appealing layout for the exhibits.
+```
+const frames = [
+    // ground floor
+    { position: { x: 30, y: 7, z: 40 }, rotation: { x: -90 * (Math.PI / 180), y: -60 * (Math.PI / 180), z: -Math.PI / 2 }, width: 12, height: 6, borderPositionOffset: { x: 0.05, y: -0.08, z: -0.01 }, hasBorder: true },
+    { position: { x: -30, y: 7, z: 40 }, rotation: { x: -90 * (Math.PI / 180), y: 60 * (Math.PI / 180), z: Math.PI / 2 }, width: 12, height: 6, borderPositionOffset: { x: 0.05, y: -0.1, z: -0.01 }, hasBorder: true },
+    { position: { x: 30, y: 7, z: 10 }, rotation: { x: -90 * (Math.PI / 180), y: -60 * (Math.PI / 180), z: -Math.PI / 2 }, width: 12, height: 6, borderPositionOffset: { x: 0.05, y: -0.08, z: -0.01 }, hasBorder: true },
+    { position: { x: -30, y: 7, z: 10 }, rotation: { x: -90 * (Math.PI / 180), y: 60 * (Math.PI / 180), z: Math.PI / 2 }, width: 12, height: 6, borderPositionOffset: { x: 0.05, y: -0.1, z: -0.01 }, hasBorder: true },
+    ...........
+]
+```
 
 ➡️ The code iterates over the data array and creates image planes with borders using the createImagePlaneWithBorder function. Each plane is configured with properties from the corresponding data and frames arrays, such as position, rotation, dimensions, and additional metadata (like slug, modalInfo, reportUrl, youtubeUrl, and title). The created planes are then pushed into the planes array. The array is created in a way as new artifacts will be added in the lobby in future, they will be placed based on the positions stored in the array.
 ```
@@ -760,6 +771,17 @@ def edition(request, pk):
     dataJSON = dumps(data)
     return render(request, './edition.html', context={"data": dataJSON})
  ```
+ ➡️ The `frames` array defines the configuration for various frames displayed in the virtual museum. Each frame object includes properties for position, rotation, width, height, border position offset, and whether it has a border. These properties ensure that each frame is accurately placed and oriented within the 3D space of the museum. The frames are distributed across different floors and walls, creating a structured and visually appealing layout for the exhibits.
+```
+const frames = [
+    // ground floor
+    { position: { x: 30, y: 7, z: 40 }, rotation: { x: -90 * (Math.PI / 180), y: -60 * (Math.PI / 180), z: -Math.PI / 2 }, width: 12, height: 6, borderPositionOffset: { x: 0.05, y: -0.08, z: -0.01 }, hasBorder: true },
+    { position: { x: -30, y: 7, z: 40 }, rotation: { x: -90 * (Math.PI / 180), y: 60 * (Math.PI / 180), z: Math.PI / 2 }, width: 12, height: 6, borderPositionOffset: { x: 0.05, y: -0.1, z: -0.01 }, hasBorder: true },
+    { position: { x: 30, y: 7, z: 10 }, rotation: { x: -90 * (Math.PI / 180), y: -60 * (Math.PI / 180), z: -Math.PI / 2 }, width: 12, height: 6, borderPositionOffset: { x: 0.05, y: -0.08, z: -0.01 }, hasBorder: true },
+    { position: { x: -30, y: 7, z: 10 }, rotation: { x: -90 * (Math.PI / 180), y: 60 * (Math.PI / 180), z: Math.PI / 2 }, width: 12, height: 6, borderPositionOffset: { x: 0.05, y: -0.1, z: -0.01 }, hasBorder: true },
+    ...........
+]
+```
  ➡️ The code iterates over the data array and creates image planes with borders using the createImagePlaneWithBorder function. Each plane is configured with properties from the corresponding data and frames arrays, such as position, rotation, dimensions, and additional metadata (like slug, modalInfo, reportUrl, youtubeUrl, and title). The created planes are then pushed into the planes array. The array is created in a way as new artifacts will be added in the lobby in future, they will be placed based on the positions stored in the array.
 ```
 for (let i = 0; i < data.length; i++) {
