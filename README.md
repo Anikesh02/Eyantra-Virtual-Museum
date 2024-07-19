@@ -3,15 +3,19 @@ e-Yantra 2024
 
 # 3D Metaverse Virtual Museum Competition
 
-##### Anikesh Kulal
-##### Akshit Garg
-##### Mentor Name - Premkumar S, Deepa Avudiappan
-##### Duration of Internship: 27/06/2024 − 19/07/2024
+Anikesh Kulal
+
+Akshit Garg
+
+Mentor Name - Premkumar S, Deepa Avudiappan
+
+Duration of Internship: 27/06/2024 − 19/07/2024
 
 
 ## Setup
 
-#### Fetching git code to local system:
+Fetching git code to local system:
+
 - Clone the repository from GitHub:
     ```
     git clone https://github.com/eYSIP-2024/24_metaverse_museum.git
@@ -20,7 +24,8 @@ e-Yantra 2024
   ```
   python -m venv env
   ```
-#### Install dependencies
+Install dependencies:
+
 - Install `node` and `npm` from [official website](https://nodejs.org).
 - Install `python` from [official website](https://www.python.org/downloads/).
 - After installing python install django: 
@@ -40,17 +45,19 @@ e-Yantra 2024
     ```
     npm run dev
     ```
-#### In another terminal, run the django server (Don't cd location in this terminal):
+- In another terminal, run the django server (Don't cd location in this terminal):
 
-  ```
-  python manage.py runserver
-  ```
+
+    ```
+    python manage.py runserver
+    ```
   	
   	
-#### Add uploads folder:
-> The uploads file structure should be like this:
-> 
- ![image](https://github.com/user-attachments/assets/fb4b734c-91e3-4a9e-9f6a-ad5fcdcfb77d)
+- Add uploads folder:
+
+    The uploads file structure should be like this:
+
+    ![image](https://github.com/user-attachments/assets/fb4b734c-91e3-4a9e-9f6a-ad5fcdcfb77d)
 
  ## Abstract
  
