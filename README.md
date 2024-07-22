@@ -193,6 +193,7 @@ It adds a click event listener to the `Go to Museum` button. When the button is 
 
 
 ### <a name="register-login">Register & Login Page</a>
+
 The Login and Register template provides a unified interface for both login and registration forms. Depending on the context variable page, it dynamically displays either the login or registration form. The login form includes fields for username and password, while the registration form utilizes Django's form rendering. Both forms are styled with a consistent CSS to ensure a cohesive user experience. Links are provided to switch between the login and registration pages, enhancing user navigation.
 
 ⭐ Register
@@ -208,6 +209,7 @@ Route: `/login`
 The Login section includes a login form where users can enter their credentials to access their account. It also includes a link to the registration page for new users to sign up.
 
 ### <a name="commonLobby">Common Lobby</a>
+
 Route: `/commonLobby`
 
 ⭐ Functions:
