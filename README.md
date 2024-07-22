@@ -11,7 +11,7 @@ Mentor Name - Premkumar S, Deepa Avudiappan
 
 Duration of Internship: 27/06/2024 − 19/07/2024
 
-### 📋 <a name="table">Table of Contents</a>
+## 📋 <a name="table">Table of Contents</a>
 
 1. 👨‍💻 [Setup](#setup)
 2. ⭐ [Abstract](#abstract)
@@ -30,7 +30,7 @@ Duration of Internship: 27/06/2024 − 19/07/2024
 15. 🔷 [Model Page](#modelPage)
 16. 🔶 [Admin Page](#admin-page)
 
-### <a name="setup" style="text-decoration: none;">Setup</a>
+## <a name="setup" style="text-decoration: none;">Setup</a>
 
 Fetching git code to local system:
 
@@ -77,11 +77,11 @@ Install dependencies:
   
 	[![uploads-Img.png](https://i.postimg.cc/SxsM1tg9/uploads-Img.png)](https://postimg.cc/JGf0GKV7)
 
-### <a name="abstract">Abstract</a>
+## <a name="abstract">Abstract</a>
  
 The e-Yantra Virtual Museum is an engaging online platform showcasing India's rich cultural heritage. It features interactive maps, detailed exhibits, a dynamic lobby, and edition-wise and state-wise artifacts for an immersive experience. Users can explore artifacts, learn regional traditions, and visit 3D models built by students. The platform includes user authentication and quizzes to enhance interaction and engagement, leveraging modern web technologies to make cultural education accessible and enjoyable globally.
 
-### <a name="complete">Completition Status</a>
+## <a name="complete">Completition Status</a>
 Features successfully implemented are: 
 
 - Created an interactive India map: Clicking a state takes user to a virtual museum specific to that region.
@@ -93,7 +93,7 @@ Features successfully implemented are:
 
 - Interactive Quiz: Amazing and fun quizzes to enhance user interactions and engagement.
 
-### <a name="tech-stack">Tech Stack</a>
+## <a name="tech-stack">Tech Stack</a>
 
 - THREE.js
 - Node.js
@@ -102,7 +102,7 @@ Features successfully implemented are:
 - HTML
 - CSS
 
-### <a name="admin-side">Admin Side</a>
+## <a name="admin-side">Admin Side</a>
  - Add/Edit/Delete Artifacts: Interface to manage artifact details such as name, description, images, and associated multimedia.
  - Artifact Categorization:  Categorize artifacts by country, state, and edition for easier navigation and management.
  - Adding Quiz Questions and Answers with images.
