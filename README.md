@@ -86,10 +86,12 @@ Features successfully implemented are:
 
 ## <a name="tech-stack">Tech Stack</a>
 
-- THREE.js
-- Node.js
+- Three.js : "0.165.0"
+- Node.js : "20.12.2"
+- npm : "10.5.0"
+- python : "3.10.4"
+- Django : "3.2"
 - MySQL
-- Django
 - HTML
 - CSS
 
