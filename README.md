@@ -19,16 +19,7 @@ Duration of Internship: 27/06/2024 − 19/07/2024
 4. ⚙️ [Tech Stack](#tech-stack)
 5. 🤸 [Admin Side](#admin-side)
 6. 📃 [Pages](#pages)
-7. 🚀 [Landing Page](#landing)
-8. 🗺️ [India Map](#indiaMap)
-9. 🔐 [Register & Login Page](#register-login)
-10. 🔶[Common Lobby](#commonLobby)
-11. 🔷 [Dynamic Lobby](#dynamicLobby)
-12. 🔶 [State-wise Lobby](#stateLobby)
-13. 🔷 [Ediition-wise Lobby](#editionLobby)
-14. 🔶 [Interactive Quiz](#quiz)
-15. 🔷 [Model Page](#modelPage)
-16. 🔶 [Admin Page](#admin-page)
+
 
 ## <a name="setup" style="text-decoration: none;">Setup</a>
 
@@ -110,27 +101,25 @@ Features successfully implemented are:
 
 ## <a name="pages">Pages</a>
 
-👉 Landing Page
+ 🔷 [Landing Page](#landing)
+   
+ 🔶 [India Map](#indiaMap)
 
-👉 India Map
+ 🔷 [Register & Login Page](#register-login)
 
-👉 Register Page
+ 🔶[Common Lobby](#commonLobby)
 
-👉 Login Page
+ 🔷 [Dynamic Lobby](#dynamicLobby)
 
-👉 Common Lobby
+ 🔶 [State-wise Lobby](#stateLobby)
 
-👉 Dynamic Lobby
-
-👉 State-wise Lobby
-
-👉 Edition-wise Lobby
-
-👉 Interactive Quiz
+ 🔷 [Ediition-wise Lobby](#editionLobby)
  
-👉 Model Page
+ 🔶 [Interactive Quiz](#quiz)
+ 
+ 🔷 [Model Page](#modelPage)
 
-👉 Admin 
+ 🔶 [Admin Page](#admin-page)
 
 ### <a name="landing">Landing Page</a>
 
