@@ -110,7 +110,7 @@ Features successfully implemented are:
 
 ## <a name="pages">Pages</a>
 
-👉 <a name="landing">Landing Page</a>
+### <a name="landing"> 👉 Landing Page</a>
 
 👉 <a name="indiaMap">India Map</a>
 
