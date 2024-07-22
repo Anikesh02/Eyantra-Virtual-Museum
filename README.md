@@ -320,11 +320,13 @@ Route: `/admin`
 - `list_filter`: Adds filter options in the admin sidebar.
 - `readonly_fields`: Makes certain fields read-only.
 - `fieldsets`: Organizes fields into sections for better UI.
+  
 ⭐ Question Admin:
 
 - `list_display`: Displays the question text in the list view.
 - `search_fields`: Allows searching by question text.
 - `list_filter`: Adds filtering options for questions.
+  
 ⭐ Choice Admin:
 
 - `list_display`: Shows question, choice text, position, and correctness in the list view.
