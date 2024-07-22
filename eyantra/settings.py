@@ -144,4 +144,4 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'uploads')
 # URL to use when referring to media files (files uploaded by users)
 MEDIA_URL = '/uploads/'
 
-ALLOWED_HOSTS=['*']
+ALLOWED_HOSTS=['.vercel.app']
