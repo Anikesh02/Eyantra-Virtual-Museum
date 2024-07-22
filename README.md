@@ -30,7 +30,7 @@ Duration of Internship: 27/06/2024 − 19/07/2024
 15. 🔷 [Model Page](#modelPage)
 16. 🔶 [Admin Page](#admin-page)
 
-## <a name="setup">Setup</a>
+## <a name="setup" style="text-decoration: none;">Setup</a>
 
 Fetching git code to local system:
 
@@ -110,9 +110,9 @@ Features successfully implemented are:
 
 ## <a name="pages">Pages</a>
 
-👉 Landing Page
+👉 <a name="landing">Landing Page</a>
 
-👉 India map
+👉 <a name="indiaMap">India Map</a>
 
 👉 Register Page
 
