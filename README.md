@@ -11,8 +11,17 @@ Mentor Name - Premkumar S, Deepa Avudiappan
 
 Duration of Internship: 27/06/2024 − 19/07/2024
 
+## 📋 <a name="table">Table of Contents</a>
 
-## Setup
+1. 🤖 [Setup](#setup)
+2. ⚙️ [Tech Stack](#tech-stack)
+3. 🔋 [Features](#features)
+4. 🤸 [Quick Start](#quick-start)
+5. 🕸️ [Snippets (Code to Copy)](#snippets)
+6. 🔗 [Links](#links)
+7. 🚀 [More](#more)
+
+## <a name="setup">Setup</a>
 
 Fetching git code to local system:
 
@@ -154,39 +163,24 @@ When a state is clicked, an info desk appears showing artifacts related to that 
 
 ⭐ Display State Info
 
-This function updates the info desk with the selected state's information, including its name, capital, image, and artifacts. It then makes the info desk visible.
+The function updates the info desk with the selected state's information, including its name, capital, image, and artifacts. It then makes the info desk visible.
 
 
 ⭐ Timeline Click Event
 
-This code adds a click event listener to each state in the timeline. When a state is clicked, it calls the displayStateInfo function to update the info desk with the selected state's information.
+A click event listener to each state in the timeline. When a state is clicked, it calls the displayStateInfo function to update the info desk with the selected state's information.
 
-```
-document.querySelectorAll('#timeline li').forEach(item => {
-  item.addEventListener('click', event => {
-    const stateId = event.target.getAttribute('data-state');
-    displayStateInfo(stateId);
-  });
-});
-```
+
 ⭐ Go Back Button
 
-This code adds a click event listener to the "Go Back" button. When the button is clicked, it hides the info desk by adding the 'hidden' class.
+It adds a click event listener to the `Go Back` button. When the button is clicked, it hides the info desk by adding the `hidden` class.
 
-```
-document.getElementById('go-back').addEventListener('click', () => {
-  document.getElementById('info-desk').classList.add('hidden');
-});
-```
+
 ⭐ Go to Museum Button
 
-This code adds a click event listener to the "Go to Museum" button. When the button is clicked, it redirects the user to the museum page.
+It adds a click event listener to the `Go to Museum` button. When the button is clicked, it redirects the user to the particular museum page.
 
-```
-document.getElementById('go-museum').addEventListener('click', () => {
-  window.location.href = '/museum';
-});
-```
+
 
 ## Register and Login Page
 The Login and Register template provides a unified interface for both login and registration forms. Depending on the context variable page, it dynamically displays either the login or registration form. The login form includes fields for username and password, while the registration form utilizes Django's form rendering. Both forms are styled with a consistent CSS to ensure a cohesive user experience. Links are provided to switch between the login and registration pages, enhancing user navigation.
@@ -194,30 +188,15 @@ The Login and Register template provides a unified interface for both login and 
 ⭐ Register
 
 Route: `/register`
-```
-{% if page != 'login' %}
-    <form method="POST" action="">
-      {% csrf_token %}
-	// Refer Source Code
-      {{ form.as_p }}
-      <input type="submit" value="Register" class="login-button">
-    </form>
-    <a href="{% url 'login' %}">Login</a>
-{% endif %}
-```
+
+The Register section includes a registration form where users can input their username and password to create a new account. It also provides a link to the login page for users who are already registered.
+
 ⭐ Login
 
 Route: `/login`
-```
-{% if page == 'login' %}
-    <form method="POST" action="">
-      {% csrf_token %}
-	// Refer Source Code
-      <input type="submit" value="Login" class="login-button">
-    </form>
-    <a href="{% url 'register' %}">Sign Up</a>
-{% endif %}
-```
+
+The Login section includes a login form where users can enter their credentials to access their account. It also includes a link to the registration page for new users to sign up.
+
 ## Common Lobby
 Route: `/commonLobby`
 
@@ -322,11 +301,7 @@ Route: `/quiz`
 Route: `/modelPage/id`
 
 ➡️ `Video Element:` The video element is used to display a background video that plays as the user scrolls. The src attribute dynamically loads the video file associated with the exhibit.
-```
-<video id="v0" tabindex="0" autobuffer="autobuffer" preload="preload" style="z-index:-99;">
-    <source type="video/mp4" src="/uploads/{{Exhibit.animation_video}}">
-</video>
-```
+
 ➡️ `JavaScript for Loader and Video Scroll:` The script hides the loader after 5 seconds and synchronizes the video playback with the user's scroll position. The scrollPlay function updates the video's current time based on the scroll position, creating a seamless scrolling animation effect.
 
 
