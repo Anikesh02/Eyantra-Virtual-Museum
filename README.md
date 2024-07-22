@@ -108,11 +108,11 @@ Features successfully implemented are:
  - Adding Quiz Questions and Answers with images.
  - Authentication : Role based authentication for user and admin
 
-## <a name="pages">Pages</a>
+# <a name="pages">Pages</a>
 
-### <a name="landing"> 👉 Landing Page</a>
+👉 Landing Page
 
-👉 <a name="indiaMap">India Map</a>
+👉 India Map
 
 👉 Register Page
 
