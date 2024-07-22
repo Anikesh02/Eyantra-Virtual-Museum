@@ -11,7 +11,7 @@ Mentor Name - Premkumar S, Deepa Avudiappan
 
 Duration of Internship: 27/06/2024 − 19/07/2024
 
-## 📋 <a name="table">Table of Contents</a>
+### 📋 <a name="table">Table of Contents</a>
 
 1. 👨‍💻 [Setup](#setup)
 2. ⭐ [Abstract](#abstract)
@@ -30,7 +30,7 @@ Duration of Internship: 27/06/2024 − 19/07/2024
 15. 🔷 [Model Page](#modelPage)
 16. 🔶 [Admin Page](#admin-page)
 
-## <a name="setup" style="text-decoration: none;">Setup</a>
+### <a name="setup" style="text-decoration: none;">Setup</a>
 
 Fetching git code to local system:
 
@@ -77,11 +77,11 @@ Install dependencies:
   
 	[![uploads-Img.png](https://i.postimg.cc/SxsM1tg9/uploads-Img.png)](https://postimg.cc/JGf0GKV7)
 
-## <a name="abstract">Abstract</a>
+### <a name="abstract">Abstract</a>
  
 The e-Yantra Virtual Museum is an engaging online platform showcasing India's rich cultural heritage. It features interactive maps, detailed exhibits, a dynamic lobby, and edition-wise and state-wise artifacts for an immersive experience. Users can explore artifacts, learn regional traditions, and visit 3D models built by students. The platform includes user authentication and quizzes to enhance interaction and engagement, leveraging modern web technologies to make cultural education accessible and enjoyable globally.
 
-## <a name="complete">Completition Status</a>
+### <a name="complete">Completition Status</a>
 Features successfully implemented are: 
 
 - Created an interactive India map: Clicking a state takes user to a virtual museum specific to that region.
@@ -93,7 +93,7 @@ Features successfully implemented are:
 
 - Interactive Quiz: Amazing and fun quizzes to enhance user interactions and engagement.
 
-## <a name="tech-stack">Tech Stack</a>
+### <a name="tech-stack">Tech Stack</a>
 
 - THREE.js
 - Node.js
@@ -102,13 +102,13 @@ Features successfully implemented are:
 - HTML
 - CSS
 
-## <a name="admin-side">Admin Side</a>
+### <a name="admin-side">Admin Side</a>
  - Add/Edit/Delete Artifacts: Interface to manage artifact details such as name, description, images, and associated multimedia.
  - Artifact Categorization:  Categorize artifacts by country, state, and edition for easier navigation and management.
  - Adding Quiz Questions and Answers with images.
  - Authentication : Role based authentication for user and admin
 
-# <a name="pages">Pages</a>
+## <a name="pages">Pages</a>
 
 👉 Landing Page
 
@@ -132,7 +132,7 @@ Features successfully implemented are:
 
 👉 Admin 
 
-## <a name="landing">Landing Page</a>
+### <a name="landing">Landing Page</a>
 
 ⭐ Header Section
 
@@ -152,7 +152,7 @@ This section highlights the key features of the virtual museum, such as the virt
 
 In the footer section, quick links and information about the website are typically displayed to help users navigate and learn more about the platform.
 
-## <a name="indiaMap">India Map</a>
+### <a name="indiaMap">India Map</a>
 
 Route: `/india`
 
@@ -192,7 +192,7 @@ It adds a click event listener to the `Go to Museum` button. When the button is 
 
 
 
-## <a name="register-login">Register & Login Page</a>
+### <a name="register-login">Register & Login Page</a>
 The Login and Register template provides a unified interface for both login and registration forms. Depending on the context variable page, it dynamically displays either the login or registration form. The login form includes fields for username and password, while the registration form utilizes Django's form rendering. Both forms are styled with a consistent CSS to ensure a cohesive user experience. Links are provided to switch between the login and registration pages, enhancing user navigation.
 
 ⭐ Register
@@ -207,7 +207,7 @@ Route: `/login`
 
 The Login section includes a login form where users can enter their credentials to access their account. It also includes a link to the registration page for new users to sign up.
 
-## <a name="commonLobby">Common Lobby</a>
+### <a name="commonLobby">Common Lobby</a>
 Route: `/commonLobby`
 
 ⭐ Functions:
@@ -233,7 +233,7 @@ The checkCameraPosition function checks the camera's position relative to the pl
 ➡️ `P key functionality`:
 In commonlobby.js, pressing the 'P' key triggers the showSelectionModal function, which creates and displays a modal window. This modal contains a selection of images representing different planes in the 3D scene. Each image is clickable and navigates the camera to the corresponding plane. The modal can be closed by clicking the "Close" button. This functionality allows users to quickly navigate to different parts of the scene by selecting from a visual menu.
 
-## <a name="dynamicLobby">Dynamic Lobby</a>
+### <a name="dynamicLobby">Dynamic Lobby</a>
 
 ⭐ Core Functionalities :
 
@@ -256,7 +256,7 @@ The navigateToImage function in commonlobby.js allows the camera to navigate to 
 ➡️ `createStairs()`:
 Tthe createStairs function is used to create stair structures in the 3D scene. It defines the geometry, texture, and position for each stair plane and adds them to the scene. The updateCameraPosition function simulates the camera's movement when climbing or descending the stairs. It checks the camera's position relative to the defined stair boundaries and adjusts the camera's height accordingly to simulate the stair climbing and descending effect. 
 
-## <a name="stateLobby">State-wise Lobby</a>
+### <a name="stateLobby">State-wise Lobby</a>
 
 Route: `/indiaLobby/IN-MH`  (If state is Maharashtra)
 
@@ -276,7 +276,7 @@ for (let i = 0; i < data.length; i++) {
 }
 ```
 
-## <a name="editionLobby">Edition-wise Lobby</a>
+### <a name="editionLobby">Edition-wise Lobby</a>
 
 Route: `/edition/[editionNo]/` (Example: /edition/1/)
 
@@ -296,7 +296,7 @@ for (let i = 0; i < data.length; i++) {
 }
 ```
 
-## <a name="quiz">Interactive Quiz</a>
+### <a name="quiz">Interactive Quiz</a>
 
 Route: `/quiz`
 
@@ -309,7 +309,7 @@ Route: `/quiz`
 ➡️ `checkForAnswer()`: This function verifies the user's selected answer, updates the background color of the options to indicate correctness, and displays the explanation for the correct answer.
 
 
-## <a name="modelPage">Model Page</a>
+### <a name="modelPage">Model Page</a>
 
 Route: `/modelPage/id`
 
@@ -318,7 +318,7 @@ Route: `/modelPage/id`
 ➡️ `JavaScript for Loader and Video Scroll:` The script hides the loader after 5 seconds and synchronizes the video playback with the user's scroll position. The scrollPlay function updates the video's current time based on the scroll position, creating a seamless scrolling animation effect.
 
 
-## <a name="admin-page">Admin Page</a>
+### <a name="admin-page">Admin Page</a>
 
 Route: `/admin`
 
