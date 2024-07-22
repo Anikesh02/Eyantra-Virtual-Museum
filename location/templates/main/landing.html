@@ -1,0 +1,207 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>e-Yantra</title>
+    <link rel="stylesheet" href="{% static 'css/landing.css'  %}">
+    <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css" rel="stylesheet" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap"
+        rel="stylesheet">
+
+</head>
+<body>
+    <div id="navbar">
+        {% include 'main/navbar.html' %}
+    </div>
+    
+    <!-- Home Section  -->
+     
+    <section class="home">
+       
+        <div class="home-text"  >
+          
+                        <!-- <h5>Let's go</h5> -->
+                        <h1>e-Yantra Virtual Museum</h1>
+                        <h3>"Built by Students, For Students"</h3>
+                        <!-- <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti suscipit illum, nemo ut<br> ex
+                            consectetur nobis exercitationem repellat nesciunt iste natus, voluptatum, repudiandae voluptates!</p>  -->
+                        <a href="{% url 'commonLobby' %}" class="btn"  style=" z-index: 1000; ">Explore</a>
+                        <video id="homeVideo" autoplay muted loop>
+                            <source src="static/assets/videos/vmc_back.mp4" type="video/mp4">
+                        </video>    
+                    </div>
+       
+    </section>
+
+    <!-- Feature Section  -->
+    <section class="feature">
+        <h1 style="color: #C80036; text-align: center; font-size: 62px; margin-bottom: 40px;">Features of our Museum</h1>
+        <div class="feature-content">
+            <div class="row">
+                <div class="row-img">
+                    <img src="static/assets/landingImgs/threeArtifacts.png" alt="">
+                </div>
+                <h4  style="font-weight: bold;">Virtual Museum</h4>
+            </div>
+
+            <div class="row">
+                <div class="row-img">
+                    <img src="static/assets/landingImgs/map.png" alt="">
+                </div>
+                <h4 style="font-weight: bold;">Our Locations</h4>
+            </div>
+
+            <div class="row">
+                <div class="row-img">
+                    <img src="static/assets/landingImgs/infodesk.png" alt="">
+                </div>
+                <h4 style="font-weight: bold;">Artefact Gallery </h4>
+            </div>
+
+        
+
+            
+        </div>
+    </section>
+
+    <!-- Features Details Section  -->
+    <section class="content">
+        <div class="content-img">
+            <img src="static/assets/landingImgs/map.png" alt="">
+        </div>
+
+        <div class="content-text">
+            <h5>Interactive Map</h5>
+           
+            <p>Explore India's rich heritage with our interactive map! Click on any state to discover a fascinating museum showcasing its unique cultural treasures. Delve into historical artifacts, learn about regional traditions, and find more info about these museums with just a click</p>
+            <a href="{% url 'indiaMap' %}" class="btn">Visit</a>
+        </div>
+    </section>
+
+    <section class="content">
+        <div class="content-text">
+            <h5>Virtual Museum</h5>
+          
+            <p>Welcome to museum, your gateway to a captivating journey through the marvels of art, history, science. Within these virtual walls, we've assembled a comprehensive collection of artifacts, each one a treasure trove waiting to be explored.</p>
+            <a href="{% url 'commonLobby' %}" class="btn">Visit</a>
+        </div>
+        <div class="content-img">
+            <img src="static/assets/landingImgs/lobby.png" alt="">
+        </div>
+
+      
+    </section>
+
+    <!-- Tour section design  -->
+    <section class="tour">
+        <div class="center-text">
+            <h2 style="color: #C80036; font-size: 62px;">Famous Museums</h2>
+        </div>
+
+        <div class="tour-content">
+            <div class="box">
+                <img src="static/assets/landingImgs/museum4.jpg" style="width: 350px; height: 300px;" alt="">
+                <h6>Dr. Bhau Daji Lad Museum </h6>
+                <h4>Mumbai</h4>
+            </div>
+
+            <div class="box">
+                <img src="static/assets/landingImgs/museum5.jpg" style="width: 350px; height: 300px;" alt="">
+                <h6>Napier Museum</h6>
+                <h4>Kerala</h4>
+            </div>
+
+            <div class="box">
+                <img src="static/assets/landingImgs/museum6.jpg" style="width: 350px; height: 300px;" alt="">
+                <h6>Salar Jung Museum</h6>
+                <h4>Hyderabad</h4>
+            </div>
+
+        </div>
+
+        <div class="center-btn">
+            <a href="{% url 'indiaMap' %}" class="btn">Select State</a>
+        </div>
+    </section>
+
+    <!-- Culture Section  -->
+    {% comment %} <section class="Culture">
+        <div class="Culture-text">
+            <h5>Indian Culture</h5>
+            <h2>Our culture is very friendly to people</h2>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum dolores iusto culpa ipsum ea ducimus minus
+                assumenda. Molestiae, quis suscipit magnam rem aspernatur, in ex cum vel eius consequuntur obcaecati
+                nesciunt reprehenderit nam assumenda!</p>
+            <a href="#" class="btn">Read More</a>
+        </div>
+
+        <div class="Culture-img">
+            <img src="static/assets/landingImgs/c1.png" alt="">
+        </div>
+    </section> {% endcomment %}
+
+    <!-- Footer section  -->
+    <section class="footer">
+        <div class="footer-box">
+            <h3>Quick Links</h3>
+            <a href="#">Home</a>
+            <a href="{% url 'indiaMap' %}">Location</a>
+            <a href="{% url 'quiz' %}">Quiz</a>
+            <a href="{% url 'register' %}">Register</a>
+        </div>
+
+        <div class="footer-box">
+            <h3>About</h3>
+            <a href="#">Our Story</a>
+            <a href="#">Benefits</a>
+            <a href="#">Team</a>
+            <a href="#">Careers</a>
+        </div>
+
+        <div class="footer-box">
+            <h3>Help</h3>
+            <a href="#">FAQs</a>
+            <a href="#">Contact Us</a>
+        </div>
+
+        <div class="footer-box">
+            <h3>Social</h3>
+            <div class="social">
+                <a href="#"><i class="ri-instagram-line"></i></a>
+                <a href="#"><i class="ri-twitter-x-line"></i></a>
+                <a href="#"><i class="ri-facebook-fill"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Copyright  -->
+     <div class="copyright">
+        <p>Copyright 2024 By eYantra</p>
+     </div>
+
+<script>
+    const header = document.querySelector('header');
+
+window.addEventListener('scroll', () => {
+    header.classList.toggle('sticky', window.scrollY > 60);
+});
+
+let menu = document.querySelector('#menu-icon');
+let navbar = document.querySelector('.navbar');
+
+menu.onclick = () => {
+    menu.classList.toggle('bx-x');
+    navbar.classList.toggle('open');
+}
+</script>
+
+    
+</body>
+
+</html>

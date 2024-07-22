@@ -1,0 +1,385 @@
+html,
+body {
+  width: 100%;
+  height: 100%;
+  font-size: 12px;
+  color: #2d2d30;
+  margin: 0;
+  font-family: 'Helvetica Neue Light', 'Helvetica Neue', Helvetica, Arial, 'Lucida Grande', sans-serif;
+  overflow: hidden; /* Hide scrollbars */
+}
+/* "justify-center items-center h-screen w-screen bg-green-500 absolute top-0 left-0 flex flex-col" */
+/* #progressPage{
+  display: flex;
+  width:100vw;
+  height:100vh;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 0;
+  left:0;
+  flex-direction: column;
+  background-color: black;
+}
+svg path {
+  z-index: 500;
+}
+#progressPage.hidden{
+  display: none;
+}
+#animatesvg
+ {
+  fill: transparent;
+  stroke-dashoffset: 141;
+  stroke-dasharray: 141;
+  animation: path 1s cubic-bezier(0.47, 0, 0.75, 0.72) forwards;
+  z-index: 1000000; */
+/* } */
+
+.loader{
+  position:fixed;
+  width: 100vw;
+  height: 100vh;
+  z-index: 50;
+  background-color: #973131;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  transition: transform 1.5 ease-in-out;
+}
+#indiaLoader{
+font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+font-size: 3rem;
+color: #F5E7B2;
+}
+.svg-calLoader {
+  width: 230px; height: 230px;
+ transform-origin: 115px 115px;
+ animation: 1.4s linear infinite loader-spin;
+}
+
+.cal-loader__plane { fill: #E0A75E; }
+.cal-loader__path { stroke: #F9D689; animation: 1.4s ease-in-out infinite loader-path; }
+@keyframes loader-spin {
+to{
+  transform: rotate(360deg);
+}
+}
+@keyframes loader-path {
+0%{
+  stroke-dasharray:  0, 580, 0, 0, 0, 0, 0, 0, 0;
+}
+50%{
+  stroke-dasharray: 0, 450, 10, 30, 10, 30, 10, 30, 10;
+}
+100%{
+  stroke-dasharray: 0, 580, 0, 0, 0, 0, 0, 0, 0;
+}
+}
+
+
+
+
+#menu {
+  width: 30em;
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 0.9em;
+  text-align: center;
+  font-size: 1.2em;
+  background-color: rgba(236, 236, 236, 0.878); /* Semi-transparent white */
+  backdrop-filter: blur(0px); /* Frosted glass effect */
+  -webkit-backdrop-filter: blur(20px); /* Safari support */
+  padding: 1em;
+  box-shadow: 0 0 2em rgb(255, 253, 253); /* Increased blur for glass effect */
+}
+
+#menu #content {
+  padding: 0.5em;
+}
+
+#menu h1 {
+  font-family: 'Oswald';
+  letter-spacing: 0.25em;
+}
+
+#menu p {
+  font-family: 'Lato';
+  margin: 0;
+}
+
+#play_button {
+  display: inline-block;
+  border-radius: 0.9em;
+  border: solid #48484f 0.1em;
+  padding: 0.5em 1.5em;
+  margin-top: 1em;
+  transition: all 0.4s; /* Transition effect when hovering */
+}
+
+#play_button:hover {
+  border-color: #2323be;
+  color: #2323be;
+  cursor: pointer;
+}
+
+#play_button p {
+  font-family: 'Oswald';
+  letter-spacing: 0.125em;
+  color: #000000;
+  font-size: 1.3em;
+  font-weight: 100;
+}
+
+#play_button:hover p {
+  color: #2323be;
+}
+
+.background_menu {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: #111; /* Dark background for contrast */
+  opacity: 0.01;
+  z-index: 4; /* Move it behind the menu */
+}
+
+
+#modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.4);
+  justify-content: center;
+  align-items: center;
+  backdrop-filter: blur(5px);
+}
+
+#modal.show {
+  display: flex;
+  pointer-events: auto;
+}
+#modal-title{
+  font-size: 2rem;
+  text-align: center;
+}
+#modal-content {
+  display: flex;
+  justify-content: space-between;
+  background-color: rgba(255, 255, 255, 0.5); /* Adjust transparency as needed */
+  border-radius: 10px;
+  padding: 20px;
+  width: 80%;
+  height: 60vh;
+  max-width: 800px;
+  
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+}
+
+#modal-left {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-right: 20px;
+  justify-content: space-between;
+}
+
+#modal-left img {
+  /* width: 100%; */
+  /* max-width: 200px; Adjust image max-width */
+  width: 300px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  max-height:325px;
+}
+
+#modal-right {
+  flex: 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+#modal-info {
+  margin-bottom: 20px;
+}
+#modal-info h2{
+  font-size: 3rem;
+ margin-bottom     : 5px;
+ padding: 0px;
+}
+#modal-description{
+  font-size: 1.5rem;
+  max-height: 32vh;
+  overflow-y: auto;
+  scrollbar-width: thin; /* Firefox */
+  scrollbar-color: rgba(100, 100, 100, 0.5) rgba(0, 0, 0, 0); /* Chrome, Safari */
+}
+/* #modal-video {
+  position: relative;
+  padding-top: 56.25%; /* Aspect ratio for responsive iframe */
+/* } */ 
+
+
+
+#modal-close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 24px;
+  color: rgba(255, 255, 255, 0.7);
+  cursor: pointer;
+}
+
+#modal-buttons {
+  text-align: center;
+  margin-top: 20px;
+}
+
+button {
+  margin: 0 10px;
+  padding: 10px 20px;
+  background-color: rgba(255, 255, 255, 1);
+  border: none;
+  border-radius: 5px;
+  color: black;
+  cursor: pointer;
+  font-size: 18px;
+}
+#youtube{
+  background-color:		 rgba(255, 255, 255, 1);
+   color: black;;
+  font-size: 18px;
+}
+#youtube:hover{
+  background-color: rgba(211, 208, 208, 0.5);
+}
+#modal-link{
+  background-color: 	 rgba(255, 255, 255, 1);
+  color:black;
+
+}
+#modal-link:hover{
+  background-color: rgba(211, 208, 208, 0.5);
+}
+#download-paper{
+  background-color: 			rgba(255, 255, 255, 1);
+  color: black;
+  
+}
+#download-paper:hover{
+  background-color: rgba(211, 208, 208, 0.5);
+}
+
+ button:hover {
+  background-color: rgba(211, 208, 208, 0.5);
+  transition: all 0.5s ease;
+}
+
+/* Floor Modal container */
+#floorSelectionModal {
+  display: none;
+  position: fixed;
+  top: 70%;
+  left: 50%;
+  transform: translate(-70%, -50%);
+  max-width: 300px;
+  padding: 10px;
+  background-color: rgba(175, 174, 174, 0.585); /* Transparent white background */
+  backdrop-filter: blur(10px); /* Blur effect for background */
+  -webkit-backdrop-filter: blur(20px); /* Safari support */
+  border-radius: 20px; 
+  /* box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);  */
+  box-shadow: 0 0 1.5em rgba(124, 124, 124, 1); /* Increased blur for glass effect */
+  pointer-events: none; /* Disable pointer events initially */
+}
+
+/* Show modal */
+#floorSelectionModal.show {
+  display: flex; 
+  align-items: center;
+  justify-content: center;
+  pointer-events: auto; 
+}
+
+/* Close button */
+#floorSelectionClose {
+  cursor: pointer;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 24px; /* Larger close button */
+  color: rgba(0, 0, 0, 0.5); /* Semi-transparent color */
+}
+
+/* Modal content layout */
+#floorSelectionContent {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  font-size: 15px;
+}
+
+/* Modal information */
+#floorSelectionInfo {
+  max-width: 100%;
+  font-size: 24px;
+}
+
+#floorSelectionInfo h2 {
+  margin-top: -0%;
+  margin-bottom: 20px;
+  font-size: 1.2em; /* Larger heading */
+  color: #333; /* Dark text color */
+  text-align: center;
+}
+
+#floorSelectionButtons {
+  display: inline-block;
+  border-radius: 0.9em;
+  border: solid #48484f 0.1em;
+  padding: 1.5em 1.5em;
+  margin-top: 1em;
+  font-size: 0.6em;
+  transition: all 0.4s; /* Transition effect when hovering */
+  background-color: rgba(175, 174, 174, 0.585); /* Transparent white background */
+  backdrop-filter: blur(0px); /* Blur effect for background */
+  -webkit-backdrop-filter: blur(20px);
+}
+
+#floorSelectionButtons:hover {
+  border-color: #2323be;
+  color: #2323be;
+  cursor: pointer;
+}
+
+#floorSelectionButtons:hover p {
+  color: #2323be;
+}
+
+/* Before: Using -ms-high-contrast */
+@media screen and (-ms-high-contrast: active) {
+  #floorSelectionClose {
+    color: HighlightText; /* System color in high contrast mode */
+  }
+}
+
+/* After: Using forced-colors */
+@media (forced-colors: active) {
+  #floorSelectionClose {
+    color: ButtonText; /* Use system color for text in buttons */
+  }
+  #floorSelectionContent, #floorSelectionInfo, #floorSelectionInfo h2 {
+    forced-color-adjust: none; /* Opt-out of forced colors for specific elements if needed */
+  }
+}

@@ -1,0 +1,157 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Authentication</title>
+  <style>
+    *{
+      margin: 0px;
+      padding: 0px;
+    }
+    body{
+      background-color:  #973131;
+      /* background-image: linear-gradient(147deg, #973131 0%, #a00000 74%); */
+      /* #F5E7B2 */
+    }
+    .container{
+      /* position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center; /* Center text within the form */
+      /* width: 300px; Adjust width as needed */ 
+      /* Optional background color */
+      /* Add some padding for aesthetics */
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      overflow: hidden;
+     
+    }
+    .container h1{
+      color: #E0A75E;
+    }
+    .form-container{
+      background-color: #F5E7B2;
+      padding: 20px;
+      border-radius: 5px; /* Rounded corners for a softer look */
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Optional subtle shadow */
+      margin-top: 15px;
+      width: 300px;
+    }
+    form {
+      margin: 0 auto; /* Remove default margin from the form */
+    }
+    label {
+      display: block; /* Display labels on separate lines */
+      margin-bottom: 5px; /* Add some space between labels and inputs */
+      margin-top: 15px;
+      font-weight: bold; /* Make labels slightly bolder */
+      font-size: 20px;
+      text-align: center;
+    }
+    input[type="text"],
+    input[type="password"] {
+      width: 100%; /* Make input fields fill the available space */
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 3px; /* Rounded corners for inputs */
+      box-sizing: border-box; /* Ensure padding doesn't affect width */
+    }
+    .login-button {
+      background-color: #4CAF50; /* Green color */
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px; /* Rounded corners */
+      cursor: pointer;
+      transition: all 0.2s ease-in-out; /* Enables hover effect transition */
+      margin: 15px 36%;
+    
+      
+     
+    }
+    
+    .login-button:hover {
+      background-color: #0a410d; /* Darker green on hover */
+    }
+    /* Style the signup link */
+    a {
+      color: #007bff; /* Blue color for signup link */
+      text-decoration: none; /* Remove underline from link */
+      font-weight: bold; /* Make link text slightly bolder */
+      display: block;
+      text-align: center;
+      margin-top: 5px;
+    }
+    /* Optional hover effect for signup link */
+    a:hover {
+      color: #0056b3; /* Slightly darker blue on hover */   
+    }
+    .check{
+      text-align: center;
+    }
+    .helptext{
+      display: none;
+    }
+    ul{
+      display: none;
+    }
+    </style>
+</head>
+<body>
+  <div id="navbar">
+    {% include 'main/navbar.html' %}
+</div>
+  {% if page == 'login' %}
+<div class="container">
+  <h1>LOGIN</h1>
+<div class="form-container">
+     <form method="POST" action="" >
+        {% csrf_token %}
+        <label>Username:</label>
+        <input type="text" name="username" placeholder="Enter username">
+        <label>Password:</label>
+        <input type="password" name="password" placeholder="Enter password">
+        
+        <input type="submit" value="Login" class="login-button">
+     </form>
+                                             
+     <p class="check">haven't signed up yet?</p>
+     <a href="{% url 'register' %}">Sign Up</a>
+
+</div>
+</div>
+{% else %}
+<div class="container">
+  <h1>REGISTER</h1>
+  <div class="form-container">
+   
+    <form method="POST" action="">
+        {% csrf_token %}
+
+
+        <!-- wrapping paragraph tags around form to make form little bit cleaner -->
+        {{form.as_p}}
+      
+
+        <input type="submit" value="Register" class="login-button">
+    </form>
+    <p class="check">Already Registered?</p>
+    <a href="{% url 'login' %}">Login</a>
+</div>
+</div>
+{% endif %}
+</body>
+</html>
+
+
+{% block content %}
+
+
+
+{% endblock %}

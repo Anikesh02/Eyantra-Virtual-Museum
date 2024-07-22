@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Please Login</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+<style>
+*{
+    margin: 0px;
+    padding: 0px;
+}
+ body{
+  background-color: #973131;
+ }
+ #container{
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    width: 100vw;
+    height: 100vh;
+    align-items: center;
+    justify-content: center;
+    color: #E0A75E
+
+ }
+ p{
+    font-family: "Roboto", sans-serif;
+  font-weight: 500;
+  font-style: normal;
+ }
+ #login{
+    font-size: 25px;
+    background-color: #f5e7b2;
+    padding: 10px;
+    color: black;
+    
+    border-radius: 5px;
+    font-family: "Roboto", sans-serif;
+  font-weight: 700;
+  font-style: normal;
+ }
+</style>
+</head>
+<body>
+    <div id="navbar">
+        {% include 'main/navbar.html' %}
+    </div>
+    <div id="container">
+    <h1>Please Login to Play Quiz</h1>
+    <p>You need to be logged in to access the quiz. Please click the link below to login.</p>
+    <a id="login" href="{% url 'login' %}">Login </a>
+</div>
+</body>
+</html>
