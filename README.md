@@ -336,9 +336,11 @@ Route: `/admin`
 - Contains fields for country, state, title, edition, username, slug, model link, media files, description, team members, school name, and verification status.
 - `front_view_preview` property generates an HTML image tag for the front view.
 - `save` method auto-generates a slug and model link before saving.
+  
 ⭐ Question Model:
 
 - Contains fields for the question text, an optional image, and an optional description.
+  
 ⭐ Choice Model:
 - Contains fields for the related question, choice text, position, and correctness.
 - Enforces unique constraints on choice text and position per question.
